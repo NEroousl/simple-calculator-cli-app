@@ -27,6 +27,8 @@ def display_message(msg_type, dynamic_text=""):
     if msg_type == "exit":
         print(f"\nExiting the system. Thank you for using the program, {dynamic_text}!")
         print("=" * 50)
+        # Holds the CLI screen for 4 seconds exactly as requested before exiting
+        time.sleep(3)
     elif msg_type == "input_error":
         print("[ERROR] Invalid input! Please enter a valid numerical value.")
     elif msg_type == "choice_error":
@@ -99,7 +101,7 @@ def show_history():
             print("--")
             
     print("____")
-    choice = input("goto main menu [ENTER] | exit application [e]: ").strip().lower()
+    choice = input("Go to main menu [ENTER] | Exit Application [e]: ").strip().lower()
     if choice == 'e':
         display_message("exit", "TwinNy")
         sys.exit()
@@ -117,7 +119,7 @@ def main():
         # Step 1: Ask for the operation first
         operation = input("Select an operation symbol or option: ").strip()
         
-        # FIX: If user presses ENTER without typing anything, refresh and load menu again
+        # If user presses ENTER without typing anything, refresh and load menu again
         if not operation:
             continue
         
@@ -134,12 +136,13 @@ def main():
         # Validate standard operators
         if operation not in ['+', '-', '*', '/']:
             display_message("choice_error")
-            choice = input("Do you want to try again? (Y/N): ").strip().lower()
-            if choice == 'y':
-                continue
-            else:
+            # Exact format requested for wrong choices
+            choice = input("Go to main menu [ENTER] | Exit Application [e] : ").strip().lower()
+            if choice == 'e':
                 display_message("exit", "TwinNy")
                 break
+            else:
+                continue
                 
         # Step 2: Ask for numbers after selecting the operator
         print() # Line space
@@ -167,7 +170,7 @@ def main():
             
         print("\n" + "=" * 50)
         
-        # Step 4: Navigation prompt exactly as requested
+        # Step 4: Navigation prompt
         choice = input("[ENTER] Another Calculation | [E] Exit Application : ").strip().lower()
         if choice == 'e':
             display_message("exit", "TwinNy")
