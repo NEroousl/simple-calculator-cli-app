@@ -117,7 +117,7 @@ def main():
         print_menu()
         
         # Step 1: Ask for the operation first
-        operation = input("Select an operation symbol or option: ").strip()
+        operation = input("Select an operation symbol for the option: ").strip()
         
         # If user presses ENTER without typing anything, refresh and load menu again
         if not operation:
