@@ -31,3 +31,11 @@ venv.bak/
 .vscode/
 *.swp
 *.swo
+
+# Build and distributions
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
