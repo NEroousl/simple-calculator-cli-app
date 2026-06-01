@@ -27,7 +27,7 @@ def display_message(msg_type, dynamic_text=""):
     if msg_type == "exit":
         print(f"\nExiting the system. Thank you for using the program, {dynamic_text}!")
         print("=" * 50)
-        # Holds the CLI screen for 4 seconds exactly as requested before exiting
+        # Holds the CLI screen for 3 seconds exactly as requested before exiting
         time.sleep(3)
     elif msg_type == "input_error":
         print("[ERROR] Invalid input! Please enter a valid numerical value.")
